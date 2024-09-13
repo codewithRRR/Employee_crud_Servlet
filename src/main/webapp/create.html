@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<style>
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.eform {
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    width: 300px;
+    display: flex;
+    flex-direction: column;
+}
+
+.eform label {
+    font-size: 14px;
+    margin-bottom: 5px;
+}
+
+.eform input {
+    padding: 8px;
+    font-size: 14px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    width: 100%;
+}
+
+.eform button {
+    padding: 10px;
+    font-size: 16px;
+    background-color: #28a745;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.eform button:hover {
+    background-color: #218838;
+}
+
+</style>
+<body>
+	<form action="insert" method="post">
+		<div class="eform">
+			<label for="eid">Enter the Id :</label> 
+			<input type="number" name="eid"> 
+			<label for="ename">Enter the Name :</label>
+			<input type="text" name="ename">
+			<label for="pos">Enter the position :</label>
+		    <input type="text" name="pos"> 
+		    <label type="sal">Enter the Salary :</label> 
+		    <input type="number" name="sal">
+		    <button>Submit</button>
+		</div>
+	</form>
+</body>
+</html>
