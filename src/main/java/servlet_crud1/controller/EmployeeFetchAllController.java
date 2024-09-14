@@ -1,7 +1,9 @@
 package servlet_crud1.controller;
 
 import java.io.IOException;
+import java.util.List;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.Servlet;
 import javax.servlet.ServletConfig;
 import javax.servlet.ServletException;
@@ -12,8 +14,8 @@ import javax.servlet.annotation.WebServlet;
 import servlet_crud1.dao.EmployeeDao;
 import servlet_crud1.dto.Employee;
 
-@WebServlet("/fetchId")
-public class EmpFetchController implements Servlet {
+@WebServlet("/fetchall")
+public class EmployeeFetchAllController implements Servlet {
 
 	@Override
 	public void init(ServletConfig config) throws ServletException {
@@ -30,15 +32,11 @@ public class EmpFetchController implements Servlet {
 	@Override
 	public void service(ServletRequest req, ServletResponse res) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		String e_id = req.getParameter("eid");
-		int id = Integer.parseInt(e_id);
-
 		EmployeeDao dao = new EmployeeDao();
-		Employee employee = dao.fetchbyEmp(id);
-		System.out.println(employee);
-		res.getWriter().print("Data Received");
-		
-
+		List<Employee> list = dao.fetchallEmp();
+		req.setAttribute("o", list);
+		RequestDispatcher dispatcher = req.getRequestDispatcher("fetchall.jsp");
+		dispatcher.forward(req, res);
 	}
 
 	@Override
